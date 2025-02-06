@@ -9,34 +9,40 @@ const posts = await getCollection("posts");
 ---
 
 <Layout>
-    <div class="flex flex-col gap-4 p-8 mx-auto w-3/4">
+    <div class="flex flex-col gap-y-24 p-12 mx-auto w-3/4">
         {/* header */}
-        <section class="self-center w-min">
+        <div class="self-center w-min">
             <h1 class="text-3xl font-bold text-nowrap animate-typewriter">
                 Hi, Jeremy here!
             </h1>
-        </section>
+        </div>
 
         {/* projects */}
-        <section class="flex flex-col gap-2">
+        <section class="flex flex-col gap-4">
             <h2 class="text-xl font-semibold"># Projects</h2>
-            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
-                {projects.map((project) => (<ProjectCard project={project.data} />))}
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {projects.map((project) => (
+                <>
+                    <ProjectCard project={project.data} />
+                    <ProjectCard project={project.data} />
+                    <ProjectCard project={project.data} />
+                </>
+                ))}
             </div>
         </section>
 
         {/* posts */}
-        <section class="flex flex-col gap-2">
+        <section class="flex flex-col gap-4">
             <h2 class="text-xl font-semibold"># Musings</h2>
-            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {posts.map((post) => (<PostCard post={post.data} />))}
             </div>
         </section>
 
         {/* links */}
-        <section>
+        <section class="flex flex-col gap-4">
             <h2 class="text-xl font-semibold"># Links</h2>
-            <ul class="flex gap-2">
+            <ul class="flex gap-4">
                 <li>Github</li>
                 <li>LinkedIn</li>
             </ul>
