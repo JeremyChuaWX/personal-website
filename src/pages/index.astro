@@ -14,20 +14,20 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @keyframes blinkCursor {
-    from, to {
-      border-right-color: transparent;
+    0%, 50% {
+      border-right-color: black; /* Cursor visible */
     }
-    50% {
-      border-right-color: black;
+    51%, 100% {
+      border-right-color: transparent; /* Cursor hidden */
     }
   }
 
   .animate-typewriter {
     overflow: hidden; /* Ensures the text is hidden initially */
     white-space: nowrap; /* Prevents text from wrapping */
-    border-right: 2px solid black; /* Creates the cursor */
+    border-right: 3px solid black; /* Creates the cursor */
     animation: typewriter 1s steps(16, end) 1s 1 normal both,
-               blinkCursor 1s steps(16, end) infinite;
+               blinkCursor 1s steps(1, end) infinite;
   }
 </style>
 
@@ -46,15 +46,30 @@ import Layout from "../layouts/Layout.astro";
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
                 <Card>
                     <h3 class="text-lg">Project 1</h3>
-                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                    <details>
+                        <summary>Details</summary>
+                        <p class="break-words whitespace-normal text-sm">
+                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
+                        </p>
+                    </details>
                 </Card>
                 <Card>
                     <h3 class="text-lg">Project 2</h3>
-                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                    <details>
+                        <summary>Details</summary>
+                        <p class="break-words whitespace-normal text-sm">
+                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
+                        </p>
+                    </details>
                 </Card>
                 <Card>
                     <h3 class="text-lg">Project 3</h3>
-                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                    <details>
+                        <summary>Details</summary>
+                        <p class="break-words whitespace-normal text-sm">
+                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
+                        </p>
+                    </details>
                 </Card>
             </div>
         </section>
@@ -65,17 +80,41 @@ import Layout from "../layouts/Layout.astro";
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
                 <Card>
                     <h3 class="text-lg">Post 1</h3>
-                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                    <details>
+                        <summary>Details</summary>
+                        <p class="break-words whitespace-normal text-sm">
+                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
+                        </p>
+                    </details>
                 </Card>
                 <Card>
                     <h3 class="text-lg">Post 2</h3>
-                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                    <details>
+                        <summary>Details</summary>
+                        <p class="break-words whitespace-normal text-sm">
+                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
+                        </p>
+                    </details>
                 </Card>
                 <Card>
                     <h3 class="text-lg">Post 3</h3>
-                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                    <details>
+                        <summary>Details</summary>
+                        <p class="break-words whitespace-normal text-sm">
+                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
+                        </p>
+                    </details>
                 </Card>
             </div>
+        </section>
+
+        {/* links */}
+        <section>
+            <h2 class="text-xl font-semibold"># Links</h2>
+            <ul class="flex gap-2">
+                <li>Github</li>
+                <li>LinkedIn</li>
+            </ul>
         </section>
     </div>
 </Layout>
