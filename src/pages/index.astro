@@ -1,35 +1,11 @@
 ---
 import Card from "src/components/Card.astro";
+import ProjectCard from "src/components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
 ---
-
-<style>
-  @keyframes typewriter {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blinkCursor {
-    0%, 50% {
-      border-right-color: black; /* Cursor visible */
-    }
-    51%, 100% {
-      border-right-color: transparent; /* Cursor hidden */
-    }
-  }
-
-  .animate-typewriter {
-    overflow: hidden; /* Ensures the text is hidden initially */
-    white-space: nowrap; /* Prevents text from wrapping */
-    border-right: 3px solid black; /* Creates the cursor */
-    animation: typewriter 1s steps(16, end) 1s 1 normal both,
-               blinkCursor 1s steps(1, end) infinite;
-  }
-</style>
 
 <Layout>
     <div class="p-8 flex flex-col gap-4 w-3/4 mx-auto">
@@ -44,15 +20,7 @@ import Layout from "../layouts/Layout.astro";
         <section class="flex flex-col gap-2">
             <h2 class="text-xl font-semibold"># Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
-                <Card>
-                    <h3 class="text-lg">Project 1</h3>
-                    <details>
-                        <summary>Details</summary>
-                        <p class="break-words whitespace-normal text-sm">
-                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
-                        </p>
-                    </details>
-                </Card>
+                {projects.map((project) => ( <ProjectCard project={project} />))}
                 <Card>
                     <h3 class="text-lg">Project 2</h3>
                     <details>
@@ -118,3 +86,31 @@ import Layout from "../layouts/Layout.astro";
         </section>
     </div>
 </Layout>
+
+<style>
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blinkCursor {
+    0%, 50% {
+      border-right-color: black; /* Cursor visible */
+    }
+    51%, 100% {
+      border-right-color: transparent; /* Cursor hidden */
+    }
+  }
+
+  .animate-typewriter {
+    overflow: hidden; /* Ensures the text is hidden initially */
+    white-space: nowrap; /* Prevents text from wrapping */
+    border-right: 3px solid black; /* Creates the cursor */
+    animation: typewriter 1s steps(16, end) 1s 1 normal both,
+               blinkCursor 1s steps(1, end) infinite;
+  }
+</style>
