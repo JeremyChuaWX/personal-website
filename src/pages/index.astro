@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import Card from "src/components/Card.astro";
+import PostCard from "src/components/PostCard.astro";
 import ProjectCard from "src/components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 const projects = await getCollection("projects");
+const posts = await getCollection("posts");
 ---
 
 <Layout>
@@ -20,25 +21,7 @@ const projects = await getCollection("projects");
         <section class="flex flex-col gap-2">
             <h2 class="text-xl font-semibold"># Projects</h2>
             <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
-                {projects.map((project) => ( <ProjectCard project={project} />))}
-                <Card>
-                    <h3 class="text-lg">Project 2</h3>
-                    <details>
-                        <summary>Details</summary>
-                        <p class="text-sm whitespace-normal break-words">
-                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
-                        </p>
-                    </details>
-                </Card>
-                <Card>
-                    <h3 class="text-lg">Project 3</h3>
-                    <details>
-                        <summary>Details</summary>
-                        <p class="text-sm whitespace-normal break-words">
-                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
-                        </p>
-                    </details>
-                </Card>
+                {projects.map((project) => (<ProjectCard project={project.data} />))}
             </div>
         </section>
 
@@ -46,33 +29,7 @@ const projects = await getCollection("projects");
         <section class="flex flex-col gap-2">
             <h2 class="text-xl font-semibold"># Musings</h2>
             <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
-                <Card>
-                    <h3 class="text-lg">Post 1</h3>
-                    <details>
-                        <summary>Details</summary>
-                        <p class="text-sm whitespace-normal break-words">
-                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
-                        </p>
-                    </details>
-                </Card>
-                <Card>
-                    <h3 class="text-lg">Post 2</h3>
-                    <details>
-                        <summary>Details</summary>
-                        <p class="text-sm whitespace-normal break-words">
-                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
-                        </p>
-                    </details>
-                </Card>
-                <Card>
-                    <h3 class="text-lg">Post 3</h3>
-                    <details>
-                        <summary>Details</summary>
-                        <p class="text-sm whitespace-normal break-words">
-                            lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
-                        </p>
-                    </details>
-                </Card>
+                {posts.map((post) => (<PostCard post={post.data} />))}
             </div>
         </section>
 

@@ -2,6 +2,7 @@
 name: My Awesome Post
 description: A brief summary of the post.
 links: []
+slug: my-awesome-post
 createdAt: 2024-01-26
 updatedAt: 2024-01-26
 tags: ["astro", "webdev", "portfolio"]
