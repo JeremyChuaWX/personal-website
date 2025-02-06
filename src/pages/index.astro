@@ -8,9 +8,9 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-    <div class="p-8 flex flex-col gap-4 w-3/4 mx-auto">
+    <div class="flex flex-col gap-4 p-8 mx-auto w-3/4">
         {/* header */}
-        <section class="w-min self-center">
+        <section class="self-center w-min">
             <h1 class="text-3xl font-bold text-nowrap animate-typewriter">
                 Hi, Jeremy here!
             </h1>
@@ -19,13 +19,13 @@ const projects = await getCollection("projects");
         {/* projects */}
         <section class="flex flex-col gap-2">
             <h2 class="text-xl font-semibold"># Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
                 {projects.map((project) => ( <ProjectCard project={project} />))}
                 <Card>
                     <h3 class="text-lg">Project 2</h3>
                     <details>
                         <summary>Details</summary>
-                        <p class="break-words whitespace-normal text-sm">
+                        <p class="text-sm whitespace-normal break-words">
                             lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
                         </p>
                     </details>
@@ -34,7 +34,7 @@ const projects = await getCollection("projects");
                     <h3 class="text-lg">Project 3</h3>
                     <details>
                         <summary>Details</summary>
-                        <p class="break-words whitespace-normal text-sm">
+                        <p class="text-sm whitespace-normal break-words">
                             lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
                         </p>
                     </details>
@@ -45,12 +45,12 @@ const projects = await getCollection("projects");
         {/* posts */}
         <section class="flex flex-col gap-2">
             <h2 class="text-xl font-semibold"># Musings</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
                 <Card>
                     <h3 class="text-lg">Post 1</h3>
                     <details>
                         <summary>Details</summary>
-                        <p class="break-words whitespace-normal text-sm">
+                        <p class="text-sm whitespace-normal break-words">
                             lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
                         </p>
                     </details>
@@ -59,7 +59,7 @@ const projects = await getCollection("projects");
                     <h3 class="text-lg">Post 2</h3>
                     <details>
                         <summary>Details</summary>
-                        <p class="break-words whitespace-normal text-sm">
+                        <p class="text-sm whitespace-normal break-words">
                             lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
                         </p>
                     </details>
@@ -68,7 +68,7 @@ const projects = await getCollection("projects");
                     <h3 class="text-lg">Post 3</h3>
                     <details>
                         <summary>Details</summary>
-                        <p class="break-words whitespace-normal text-sm">
+                        <p class="text-sm whitespace-normal break-words">
                             lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk
                         </p>
                     </details>
