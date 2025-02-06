@@ -1,7 +1,81 @@
 ---
+import Card from "src/components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
+<style>
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blinkCursor {
+    from, to {
+      border-right-color: transparent;
+    }
+    50% {
+      border-right-color: black;
+    }
+  }
+
+  .animate-typewriter {
+    overflow: hidden; /* Ensures the text is hidden initially */
+    white-space: nowrap; /* Prevents text from wrapping */
+    border-right: 2px solid black; /* Creates the cursor */
+    animation: typewriter 1s steps(16, end) 1s 1 normal both,
+               blinkCursor 1s steps(16, end) infinite;
+  }
+</style>
+
 <Layout>
-    <h1>Hi, Jeremy here!</h1>
+    <div class="p-8 flex flex-col gap-4 w-3/4 mx-auto">
+        {/* header */}
+        <section class="w-min self-center">
+            <h1 class="text-3xl font-bold text-nowrap animate-typewriter">
+                Hi, Jeremy here!
+            </h1>
+        </section>
+
+        {/* projects */}
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold"># Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+                <Card>
+                    <h3 class="text-lg">Project 1</h3>
+                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                </Card>
+                <Card>
+                    <h3 class="text-lg">Project 2</h3>
+                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                </Card>
+                <Card>
+                    <h3 class="text-lg">Project 3</h3>
+                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                </Card>
+            </div>
+        </section>
+
+        {/* posts */}
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold"># Musings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+                <Card>
+                    <h3 class="text-lg">Post 1</h3>
+                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                </Card>
+                <Card>
+                    <h3 class="text-lg">Post 2</h3>
+                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                </Card>
+                <Card>
+                    <h3 class="text-lg">Post 3</h3>
+                    <details>lkasdjflkadsjf;fghdjslsakljlsdkjflaskfjlk</details>
+                </Card>
+            </div>
+        </section>
+    </div>
 </Layout>
