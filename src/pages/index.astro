@@ -21,13 +21,15 @@ const posts = await getCollection("posts");
         <section class="flex flex-col gap-4">
             <h2 class="text-xl font-semibold"># Projects</h2>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {projects.map((project) => (
-                <>
-                    <ProjectCard project={project.data} />
-                    <ProjectCard project={project.data} />
-                    <ProjectCard project={project.data} />
-                </>
-                ))}
+                {
+                    projects.map((project) => (
+                        <>
+                            <ProjectCard project={project.data} />
+                            <ProjectCard project={project.data} />
+                            <ProjectCard project={project.data} />
+                        </>
+                    ))
+                }
             </div>
         </section>
 
@@ -35,7 +37,7 @@ const posts = await getCollection("posts");
         <section class="flex flex-col gap-4">
             <h2 class="text-xl font-semibold"># Musings</h2>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {posts.map((post) => (<PostCard post={post.data} />))}
+                {posts.map((post) => <PostCard post={post.data} />)}
             </div>
         </section>
 
@@ -51,29 +53,32 @@ const posts = await getCollection("posts");
 </Layout>
 
 <style>
-  @keyframes typewriter {
-    from {
-      width: 0;
+    @keyframes typewriter {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
     }
-    to {
-      width: 100%;
-    }
-  }
 
-  @keyframes blinkCursor {
-    0%, 50% {
-      border-right-color: black; /* Cursor visible */
+    @keyframes blinkCursor {
+        0%,
+        50% {
+            border-right-color: black; /* Cursor visible */
+        }
+        51%,
+        100% {
+            border-right-color: transparent; /* Cursor hidden */
+        }
     }
-    51%, 100% {
-      border-right-color: transparent; /* Cursor hidden */
-    }
-  }
 
-  .animate-typewriter {
-    overflow: hidden; /* Ensures the text is hidden initially */
-    white-space: nowrap; /* Prevents text from wrapping */
-    border-right: 3px solid black; /* Creates the cursor */
-    animation: typewriter 1s steps(16, end) 1s 1 normal both,
-               blinkCursor 1s steps(1, end) infinite;
-  }
+    .animate-typewriter {
+        overflow: hidden; /* Ensures the text is hidden initially */
+        white-space: nowrap; /* Prevents text from wrapping */
+        border-right: 3px solid black; /* Creates the cursor */
+        animation:
+            typewriter 1s steps(16, end) 1s 1 normal both,
+            blinkCursor 1s steps(1, end) infinite;
+    }
 </style>
