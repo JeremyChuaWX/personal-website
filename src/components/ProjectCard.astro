@@ -8,10 +8,20 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<a href={`/project/${project.slug}`}>
+<a href={`/project/${project.slug}`} class="group">
     <div
-        class="p-4 border-2 transition duration-150 ease-out hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] hover:-translate-[2.5px]"
+        class="flex flex-col gap-1 p-4 h-full border-2 transition duration-150 ease-out group-hover:bg-white aspect-square group-hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] group-hover:-translate-[2.5px]"
     >
-        <h3 class="text-lg">{project.name}</h3>
+        <h3 class="text-lg font-semibold">{project.name}</h3>
+        <p class="line-clamp-5">{project.description}</p>
+        <div class="flex flex-wrap gap-1 mt-auto w-full">
+            {
+                project.tags.map((tag) => (
+                    <span class="py-1 px-2 text-xs bg-black rounded-full group-hover:text-white text-primary">
+                        {tag}
+                    </span>
+                ))
+            }
+        </div>
     </div>
 </a>

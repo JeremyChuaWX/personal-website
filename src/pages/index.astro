@@ -19,7 +19,7 @@ const posts = await getCollection("posts");
 
         {/* projects */}
         <section class="flex flex-col gap-4">
-            <h2 class="text-xl font-semibold"># Projects</h2>
+            <h2 class="text-xl italic font-semibold"># Projects</h2>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {
                     projects.map((project) => (
@@ -35,7 +35,7 @@ const posts = await getCollection("posts");
 
         {/* posts */}
         <section class="flex flex-col gap-4">
-            <h2 class="text-xl font-semibold"># Musings</h2>
+            <h2 class="text-xl italic font-semibold"># Musings</h2>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {posts.map((post) => <PostCard post={post.data} />)}
             </div>
@@ -43,7 +43,7 @@ const posts = await getCollection("posts");
 
         {/* links */}
         <section class="flex flex-col gap-4">
-            <h2 class="text-xl font-semibold"># Links</h2>
+            <h2 class="text-xl italic font-semibold"># Links</h2>
             <ul class="flex gap-4">
                 <li>Github</li>
                 <li>LinkedIn</li>
