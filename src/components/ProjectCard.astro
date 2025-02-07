@@ -2,12 +2,14 @@
 import type { Project } from "src/content.config";
 
 interface Props {
-    project: Project
+    project: Project;
 }
 
 const { project } = Astro.props;
 ---
 
-<div class="p-4 border-2 transition duration-150 ease-out hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] hover:-translate-[2.5px]">
-    <h3 class="text-lg">{project.name}</h3>
-</div>
+<a href={`/project/${project.slug}`}>
+    <div class="p-4 border-2 transition duration-150 ease-out hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] hover:-translate-[2.5px]">
+        <h3 class="text-lg">{project.name}</h3>
+    </div>
+</a>
