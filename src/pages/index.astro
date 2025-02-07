@@ -9,76 +9,35 @@ const posts = await getCollection("posts");
 ---
 
 <Layout>
-    <div class="flex flex-col gap-y-24 p-12 mx-auto w-3/4">
-        {/* header */}
-        <div class="self-center w-min">
-            <h1 class="text-3xl font-extrabold text-nowrap animate-typewriter">
-                Hey, Jeremy here!
-            </h1>
-        </div>
-
-        {/* projects */}
-        <section class="flex flex-col gap-4">
-            <h2 class="text-xl italic font-bold"># Projects</h2>
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {
-                    projects.map((project) => (
-                        <>
-                            <ProjectCard project={project.data} />
-                            <ProjectCard project={project.data} />
-                            <ProjectCard project={project.data} />
-                        </>
-                    ))
-                }
-            </div>
-        </section>
-
-        {/* posts */}
-        <section class="flex flex-col gap-4">
-            <h2 class="text-xl italic font-semibold"># Musings</h2>
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {posts.map((post) => <PostCard post={post.data} />)}
-            </div>
-        </section>
-
-        {/* links */}
-        <section class="flex flex-col gap-4">
-            <h2 class="text-xl italic font-semibold"># Links</h2>
-            <ul class="flex gap-4">
-                <li>Github</li>
-                <li>LinkedIn</li>
-            </ul>
-        </section>
+    {/* header */}
+    <div
+        class="self-center p-4 w-min bg-white border-2 shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
+    >
+        <h1 class="py-2 text-3xl font-extrabold text-nowrap animate-typewriter">
+            Hey, Jeremy here!
+        </h1>
     </div>
+
+    {/* projects */}
+    <section class="flex flex-col gap-4">
+        <h2 class="w-full text-xl italic font-bold text-nowrap"># Projects</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {projects.map((project) => <ProjectCard project={project.data} />)}
+        </div>
+    </section>
+
+    {/* posts */}
+    <section class="flex flex-col gap-4">
+        <h2 class="w-full text-xl italic font-bold text-nowrap"># Musings</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {posts.map((post) => <PostCard post={post.data} />)}
+        </div>
+    </section>
+
+    {/* links */}
+    <ul class="flex gap-4">
+        <li>Github</li>
+        <li>LinkedIn</li>
+        <li>Resume</li>
+    </ul>
 </Layout>
-
-<style>
-    @keyframes typewriter {
-        from {
-            width: 0;
-        }
-        to {
-            width: 100%;
-        }
-    }
-
-    @keyframes blinkCursor {
-        0%,
-        50% {
-            border-right-color: black; /* Cursor visible */
-        }
-        51%,
-        100% {
-            border-right-color: transparent; /* Cursor hidden */
-        }
-    }
-
-    .animate-typewriter {
-        overflow: hidden; /* Ensures the text is hidden initially */
-        white-space: nowrap; /* Prevents text from wrapping */
-        border-right: 3px solid black; /* Creates the cursor */
-        animation:
-            typewriter 1s steps(16, end) 1s 1 normal both,
-            blinkCursor 1s steps(1, end) infinite;
-    }
-</style>
