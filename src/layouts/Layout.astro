@@ -2,6 +2,7 @@
 import "@fontsource-variable/martian-mono";
 import "src/styles/global.css";
 import Head from "src/components/Head.astro";
+import Footer from "src/components/Footer.astro";
 ---
 
 <!doctype html>
@@ -13,5 +14,6 @@ import Head from "src/components/Head.astro";
     </head>
     <body class="flex flex-col gap-y-16 p-12 mx-auto w-3/4 bg-primary">
         <slot />
+        <Footer />
     </body>
 </html>

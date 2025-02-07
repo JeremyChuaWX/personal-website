@@ -33,11 +33,4 @@ const posts = await getCollection("posts");
             {posts.map((post) => <PostCard post={post.data} />)}
         </div>
     </section>
-
-    {/* links */}
-    <ul class="flex gap-4">
-        <li>Github</li>
-        <li>LinkedIn</li>
-        <li>Resume</li>
-    </ul>
 </Layout>
