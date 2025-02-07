@@ -12,14 +12,14 @@ const posts = await getCollection("posts");
     <div class="flex flex-col gap-y-24 p-12 mx-auto w-3/4">
         {/* header */}
         <div class="self-center w-min">
-            <h1 class="text-3xl font-bold text-nowrap animate-typewriter">
+            <h1 class="text-3xl font-extrabold text-nowrap animate-typewriter">
                 Hi, Jeremy here!
             </h1>
         </div>
 
         {/* projects */}
         <section class="flex flex-col gap-4">
-            <h2 class="text-xl italic font-semibold"># Projects</h2>
+            <h2 class="text-xl italic font-bold"># Projects</h2>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {
                     projects.map((project) => (
