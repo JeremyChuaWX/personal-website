@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import PostCard from "src/components/PostCard.astro";
-import ProjectCard from "src/components/ProjectCard.astro";
 import Layout from "src/layouts/Layout.astro";
+import Card from "src/components/Card.astro";
 
 const projects = await getCollection("projects");
 const posts = await getCollection("posts");
@@ -11,26 +10,64 @@ const posts = await getCollection("posts");
 <Layout>
     {/* header */}
     <div
-        class="self-center p-4 w-min bg-white border-2 shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
+        class="self-center p-4 bg-white border-2 w-fit shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
     >
-        <h1 class="py-2 text-3xl font-extrabold text-nowrap animate-typewriter">
+        <h1 class="py-2 text-3xl font-extrabold animate-typewriter">
             Hey, Jeremy here!
         </h1>
     </div>
 
     {/* projects */}
-    <section class="flex flex-col gap-4">
+    <section class="flex flex-col gap-4 w-full md:w-fit">
         <h2 class="w-full text-xl italic font-bold text-nowrap"># Projects</h2>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {projects.map((project) => <ProjectCard project={project.data} />)}
+            {
+                projects.map((project) => (
+                    <Card
+                        title={project.data.name}
+                        description={project.data.description}
+                        slug={`/project/${project.data.slug}`}
+                        tags={project.data.tags}
+                    />
+                ))
+            }
+            {
+                projects.map((project) => (
+                    <Card
+                        title={project.data.name}
+                        description={project.data.description}
+                        slug={`/project/${project.data.slug}`}
+                        tags={project.data.tags}
+                    />
+                ))
+            }
+            {
+                projects.map((project) => (
+                    <Card
+                        title={project.data.name}
+                        description={project.data.description}
+                        slug={`/project/${project.data.slug}`}
+                        tags={project.data.tags}
+                    />
+                ))
+            }
         </div>
     </section>
 
     {/* posts */}
-    <section class="flex flex-col gap-4">
+    <section class="flex flex-col gap-4 w-full md:w-fit">
         <h2 class="w-full text-xl italic font-bold text-nowrap"># Musings</h2>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {posts.map((post) => <PostCard post={post.data} />)}
+            {
+                posts.map((post) => (
+                    <Card
+                        title={post.data.name}
+                        description={post.data.description}
+                        slug={`/post/${post.data.slug}`}
+                        tags={post.data.tags}
+                    />
+                ))
+            }
         </div>
     </section>
 </Layout>
