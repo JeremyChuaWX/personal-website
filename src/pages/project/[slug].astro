@@ -20,19 +20,25 @@ const { Content } = await render(project);
 ---
 
 <Layout>
-    {/* header */}
-    <div class="w-min">
-        <a href="/">
-            <h1 class="text-xl font-extrabold text-nowrap animate-typewriter">
-                Hey, Jeremy here!
-            </h1>
-        </a>
-    </div>
+    <div class="flex flex-col gap-y-16 items-center py-12 px-4">
+        {/* header */}
+        <div class="flex w-full">
+            <a href="/">
+                <div class="w-min">
+                    <h1
+                        class="text-xl font-extrabold text-nowrap animate-typewriter"
+                    >
+                        Hey, Jeremy here!
+                    </h1>
+                </div>
+            </a>
+        </div>
 
-    {/* body */}
-    <article
-        class="p-4 bg-white border-2 shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
-    >
-        <Content />
-    </article>
+        {/* body */}
+        <article
+            class="p-4 w-full bg-white border-2 shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px] max-w-[1200px]"
+        >
+            <Content />
+        </article>
+    </div>
 </Layout>

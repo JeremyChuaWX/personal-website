@@ -8,66 +8,50 @@ const posts = await getCollection("posts");
 ---
 
 <Layout>
-    {/* header */}
     <div
-        class="self-center p-4 bg-white border-2 w-fit shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
+        class="flex flex-col gap-y-16 items-center py-12 px-4 md:mx-auto md:w-3/4"
     >
-        <h1 class="py-2 text-3xl font-extrabold animate-typewriter">
-            Hey, Jeremy here!
-        </h1>
+        {/* header */}
+        <div
+            class="py-6 px-4 bg-white border-2 w-fit shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
+        >
+            <h1 class="text-3xl font-extrabold animate-typewriter">
+                Hey, Jeremy here!
+            </h1>
+        </div>
+
+        {/* projects */}
+        <section class="flex flex-col gap-4 w-full md:w-fit">
+            <h2 class="text-xl italic font-bold text-nowrap"># Projects</h2>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {
+                    projects.map((project) => (
+                        <Card
+                            title={project.data.name}
+                            description={project.data.description}
+                            slug={`/project/${project.data.slug}`}
+                            tags={project.data.tags}
+                        />
+                    ))
+                }
+            </div>
+        </section>
+
+        {/* posts */}
+        <section class="flex flex-col gap-4 w-full md:w-fit">
+            <h2 class="text-xl italic font-bold text-nowrap"># Musings</h2>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {
+                    posts.map((post) => (
+                        <Card
+                            title={post.data.name}
+                            description={post.data.description}
+                            slug={`/post/${post.data.slug}`}
+                            tags={post.data.tags}
+                        />
+                    ))
+                }
+            </div>
+        </section>
     </div>
-
-    {/* projects */}
-    <section class="flex flex-col gap-4 w-full md:w-fit">
-        <h2 class="w-full text-xl italic font-bold text-nowrap"># Projects</h2>
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {
-                projects.map((project) => (
-                    <Card
-                        title={project.data.name}
-                        description={project.data.description}
-                        slug={`/project/${project.data.slug}`}
-                        tags={project.data.tags}
-                    />
-                ))
-            }
-            {
-                projects.map((project) => (
-                    <Card
-                        title={project.data.name}
-                        description={project.data.description}
-                        slug={`/project/${project.data.slug}`}
-                        tags={project.data.tags}
-                    />
-                ))
-            }
-            {
-                projects.map((project) => (
-                    <Card
-                        title={project.data.name}
-                        description={project.data.description}
-                        slug={`/project/${project.data.slug}`}
-                        tags={project.data.tags}
-                    />
-                ))
-            }
-        </div>
-    </section>
-
-    {/* posts */}
-    <section class="flex flex-col gap-4 w-full md:w-fit">
-        <h2 class="w-full text-xl italic font-bold text-nowrap"># Musings</h2>
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {
-                posts.map((post) => (
-                    <Card
-                        title={post.data.name}
-                        description={post.data.description}
-                        slug={`/post/${post.data.slug}`}
-                        tags={post.data.tags}
-                    />
-                ))
-            }
-        </div>
-    </section>
 </Layout>
