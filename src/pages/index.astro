@@ -22,12 +22,6 @@ const posts = await getCollection("posts");
             >
                 Hey, Jeremy here!
             </h1>
-            <input
-                id="header-input"
-                class="flex w-min text-3xl font-extrabold cursor-pointer"
-                style="display: none;"
-                placeholder="Type something..."
-            />
         </div>
 
         {/* projects */}
@@ -65,20 +59,3 @@ const posts = await getCollection("posts");
         </section>
     </div>
 </Layout>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const header = document.getElementById("header-div")!;
-        const h1 = document.getElementById("header-h1")!;
-        const input = document.getElementById("header-input")!;
-
-        h1.addEventListener("animationend", () => {
-            header.style.cursor = "pointer";
-            header.addEventListener("click", () => {
-                h1.style.display = "none";
-                input.style.display = "inline-block";
-                input.focus();
-            });
-        });
-    });
-</script>
