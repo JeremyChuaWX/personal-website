@@ -3,9 +3,10 @@ import Layout from "src/layouts/Layout.astro";
 
 interface Props {
     title: string;
+    tags: string[];
 }
 
-const { title } = Astro.props;
+const { title, tags } = Astro.props;
 ---
 
 <Layout title={title}>
@@ -13,21 +14,29 @@ const { title } = Astro.props;
         class="flex flex-col gap-y-16 items-center py-12 px-1 mx-auto max-w-[1500px]"
     >
         {/* header */}
-        <div class="flex pl-3 w-full">
-            <a href="/">
-                <h1
-                    class="text-xl font-extrabold text-nowrap animate-typewriter"
-                >
-                    {title}
-                </h1>
-            </a>
+        <div class="self-start">
+            <h1 class="text-xl font-extrabold animate-typewriter">
+                Hey, Jeremy here!
+            </h1>
         </div>
 
-        {/* body */}
-        <article
-            class="p-4 w-full bg-white border-2 shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
+        <div
+            class="flex flex-col p-4 w-full bg-white border-2 shadow-[5px_5px_0_0_rgba(0,0,0,1)] -translate-[2.5px]"
         >
-            <slot />
-        </article>
+            {/* title */}
+            <h1 class="pb-1 text-xl font-extrabold text-nowrap">
+                {title}
+            </h1>
+
+            {/* tags */}
+            <text class="flex gap-x-2 pb-4 text-sm text-gray-400">
+                {tags.join(" | ")}
+            </text>
+
+            {/* body */}
+            <article>
+                <slot />
+            </article>
+        </div>
     </div>
 </Layout>

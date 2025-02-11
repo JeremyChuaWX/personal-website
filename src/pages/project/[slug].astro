@@ -19,6 +19,6 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<ContentLayout title={project.data.name}>
+<ContentLayout title={project.data.name} tags={project.data.tags}>
     <Content />
 </ContentLayout>

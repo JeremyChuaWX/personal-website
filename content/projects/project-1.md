@@ -8,7 +8,5 @@ updatedAt: 2024-01-26
 tags: ["astro", "webdev", "portfolio"]
 ---
 
-# My Awesome Project
-
 This is the main content of my project.
 You can write detailed explanations, include code snippets, and more.
