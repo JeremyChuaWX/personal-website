@@ -11,11 +11,26 @@ const { title, tags } = Astro.props;
 
 <Layout title={title}>
     <div
-        class="flex flex-col gap-y-16 items-center py-12 px-1 mx-auto max-w-[1500px]"
+        class="flex overflow-hidden flex-col gap-y-16 items-center py-12 px-1 mx-auto max-w-[1500px]"
     >
         {/* header */}
-        <div class="self-start">
-            <a href="/">
+        <div
+            class="flex gap-x-1 items-center self-start transition-transform duration-150 ease-in-out hover:translate-x-0 -translate-x-[25px]"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-left"
+                ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+            >
+            <a href="/" class="block">
                 <h1 class="text-xl font-extrabold animate-typewriter">
                     Hey, Jeremy here!
                 </h1>
