@@ -1,0 +1,16 @@
+{
+    "links": [
+        {
+            "name": "Github",
+            "href": "https://github.com/JeremyChuaWX"
+        },
+        {
+            "name": "LinkedIn",
+            "href": "https://www.linkedin.com/in/jeremy-chua-wen-xi"
+        },
+        {
+            "name": "Resume",
+            "href": "/public/jeremy-chua-resume.pdf"
+        }
+    ]
+}
