@@ -31,9 +31,13 @@ const { title, tags } = Astro.props;
             </h1>
 
             {/* tags */}
-            <text class="flex gap-x-2 pb-4 text-sm text-gray-400">
-                {tags.join(" | ")}
-            </text>
+            {
+                tags && tags.length > 0 && (
+                    <text class="flex gap-x-2 pb-4 text-sm text-gray-400">
+                        {tags.join(" | ")}
+                    </text>
+                )
+            }
 
             {/* body */}
             <article>
